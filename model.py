@@ -11,7 +11,7 @@ from cuml.neighbors import KNeighborsClassifier
 class ModelManager:
 
     def __init__(self):
-        dbname = './data/point220.sqlite3'
+        dbname = './data/point.sqlite3'
         conn = sqlite3.connect(dbname)
         cur = conn.cursor()
 
