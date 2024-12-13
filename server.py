@@ -6,7 +6,7 @@ from fastapi import FastAPI, WebSocket, WebSocketDisconnect
 import database
 from model import ModelManager
 from websocket import ConnectionManager
-from predicrtData import PredictData
+from predictData import PredictData
 
 manager = ConnectionManager()
 model = ModelManager()
@@ -72,9 +72,9 @@ async def websocket_point_loader(websocket: WebSocket):
 
             # 移動距離を求める!! X Y 別々に 100 => y=1 x=0  310 => y=3 x=10
             latest_x: int = predictData.latestKnn % 100
-            latest_y: int = int(predictData.latestKnn / 100) % 10
+            latest_y: int = int(predictData.latestKnn / 100)
             pre_x: int = predictData.knn % 100
-            pre_y: int = int((predictData.knn / 100)) % 10
+            pre_y: int = int((predictData.knn / 100))
 
             del_x = pre_x - latest_x
             del_y = pre_y - latest_y
